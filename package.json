@@ -1,0 +1,28 @@
+{
+  "name": "ddns-client",
+  "version": "1.0.0",
+  "description": "DDNS command line Software to automatically update your name server",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf bin && tsc && chmod a+x ./bin/index.js"
+  },
+  "author": "Sofia Vicedomini (https://antiumsoft.dev)",
+  "license": "MIT",
+  "bin": {
+    "cloudflare-ddns": "./bin/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "boxen": "^5.0.1",
+    "chalk": "^4.1.1",
+    "is-valid-domain": "0.0.20",
+    "public-ip": "^4.0.4",
+    "yargs": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.3.1",
+    "@types/yargs": "^17.0.2",
+    "typescript": "^4.3.5"
+  }
+}
