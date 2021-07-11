@@ -1,6 +1,6 @@
 import {addZone} from "../commands";
 import {CommandModule} from "yargs";
-import {zoneTypes} from "../config";
+import {ZoneType} from "../config";
 
 export default {
     command: "addzone <zoneName> [type] [apiToken] [ttl] <domains...>",
@@ -15,7 +15,7 @@ export default {
         type :{
             describe: "Type of DDNS Server",
             type: "string",
-            choices: zoneTypes,
+            choices: Object.keys(ZoneType),
             alias: 't',
             demand: true
         },

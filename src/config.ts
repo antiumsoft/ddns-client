@@ -5,7 +5,7 @@ export interface AppConfig {
     path: string,
     winPath: string,
     filename: string,
-    apiUrl: string,
+    cloudflareUrl: string,
 
     getConfigFile(): string
 
@@ -14,8 +14,9 @@ export interface AppConfig {
 
 export type ZonesConfig = { [zone: string]: ZoneConfig }
 
-export const zoneTypes = ['cloudflare']
-export type ZoneType = typeof zoneTypes[number]
+export enum ZoneType {
+    CLOUDFLARE = "CLOUDFLARE"
+}
 
 export interface ZoneConfig {
     token: string,
@@ -27,10 +28,10 @@ export interface ZoneConfig {
 }
 
 export default {
-    path: "/etc/cloudflare-ddns",
+    path: "/etc/ddns-client",
     winPath: path.join(__dirname, '..', 'config'),
-    filename: "cloudflare-ddns.json",
-    apiUrl: "https://api.cloudflare.com/client/v4/",
+    filename: "ddns-client.json",
+    cloudflareUrl: "https://api.cloudflare.com/client/v4/",
     getConfigPath(): string {
         if (os.platform() === "win32") {
             return path.join(this.winPath)
