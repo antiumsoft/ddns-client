@@ -14,7 +14,7 @@
   "author": "Sofia Vicedomini (https://antiumsoft.dev)",
   "license": "MIT",
   "bin": {
-    "cloudflare-ddns": "./bin/index.js"
+    "ddns-client": "./bin/index.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
