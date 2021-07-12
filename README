@@ -27,3 +27,7 @@ Commands:
 Options:
   --version  Show version number                                       [boolean]
   --help     Show help                                                 [boolean]
+
+Supported Providers:
+ - CloudFlare
+[ Others to come soon ]
