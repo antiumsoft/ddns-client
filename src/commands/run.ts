@@ -1,12 +1,10 @@
-import fs from 'fs';
-import config, {ZonesConfig, ZoneType} from "../config";
+import {ZoneConfig, ZoneType} from "../config";
 import {green, red} from "chalk";
 import {Arguments} from "yargs";
 import ConfigService from "../services/config.service";
 import * as process from "process";
-import ZoneService from "../services/zone.service";
+import ZoneService, {DNSRecordType} from "../services/zone.service";
 import CloudflareService from "../services/cloudflare.service";
-import publicIp from "public-ip";
 import {getIp} from "../utils/ip";
 
 export default async function run(params: Arguments) {
@@ -33,9 +31,9 @@ async function updateZone(zone: string, ip: string) {
     }
 
     let status = []
-    const service: ZoneService = getService(config[zone].type)
+    const service: ZoneService = getService(config[zone].type, config[zone])
     for (let domain of config[zone].domains) {
-        const result = await service.updateRecord(zone, domain, ip)
+        const result = await service.updateRecord(zone, domain, ip, DNSRecordType.A)
         status.push(`${domain}=${result}`)
     }
 
@@ -45,10 +43,10 @@ async function updateZone(zone: string, ip: string) {
 
 }
 
-function getService(type: ZoneType): ZoneService {
+function getService(type: ZoneType, zoneConfig: ZoneConfig): ZoneService {
     switch (type) {
-        case 'cloudflare':
-            return new CloudflareService();
+        case ZoneType.CLOUDFLARE:
+            return new CloudflareService(zoneConfig.token);
         default:
             console.log(red('Cannot find instance for Service:'), red.bold(type))
             process.exit(1)
