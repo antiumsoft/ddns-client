@@ -5,7 +5,11 @@
   "main": "bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf bin && tsc && chmod a+x ./bin/index.js"
+    "build": "rm -rf bin && tsc && chmod a+x ./bin/index.js",
+    "lint": "eslint \"{,!(node_modules)/**/}*.ts\"",
+    "lint:fix": "eslint --fix \"{,!(node_modules)/**/}*.ts\"",
+    "prettier:check": "prettier --check \"{,!(node_modules)/**/}*.{ts,tsx,css,md,json}\"",
+    "prettier:fix": "prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,css,md,json}\""
   },
   "author": "Sofia Vicedomini (https://antiumsoft.dev)",
   "license": "MIT",
@@ -23,6 +27,16 @@
   "devDependencies": {
     "@types/node": "^16.3.1",
     "@types/yargs": "^17.0.2",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "@typescript-eslint/eslint-plugin": "^4.12.0",
+    "@typescript-eslint/parser": "^4.12.0",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "prettier": "^2.3.0"
   }
 }

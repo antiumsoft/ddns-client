@@ -1,5 +1,5 @@
-import publicIp from "public-ip";
+import publicIp from 'public-ip'
 
 export async function getIp() {
-    return await publicIp.v4();
+  return await publicIp.v4()
 }
