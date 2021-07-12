@@ -1,0 +1,29 @@
+
+   ╭─────────────────────────────────────────────────────────╮
+   │                                                         │
+   │   ____________ _   _  _____ _____ _ _            _      │
+   │   |  _  \  _  \ \ | |/  ___/  __ \ (_)          | |     │
+   │   | | | | | | |  \| |\ `--.| /  \/ |_  ___ _ __ | |_    │
+   │   | | | | | | | . ` | `--. \ |   | | |/ _ \ '_ \| __|   │
+   │   | |/ /| |/ /| |\  |/\__/ / \__/\ | |  __/ | | | |_    │
+   │   |___/ |___/ \_| \_/\____/ \____/_|_|\___|_| |_|\__|   │
+   │                                                         │
+   │                                                         │
+   ╰─────────────────────────────────────────────────────────╯
+
+ddns-client <command>
+
+Commands:
+  ddns-client addzone <zoneName> [type]     Adds a zone to the configuration
+  [apiToken] [ttl] <domains...>                                     [aliases: a]
+  ddns-client delzone <zoneName>            Deletes a zone from the
+                                            configuration           [aliases: d]
+  ddns-client updateToken <zoneName>        Updates the token for a zone
+  [apiToken]                                                        [aliases: u]
+  ddns-client init                          Initializes the application
+                                                                    [aliases: i]
+  ddns-client run [zones...]                Runs the update         [aliases: r]
+
+Options:
+  --version  Show version number                                       [boolean]
+  --help     Show help                                                 [boolean]
